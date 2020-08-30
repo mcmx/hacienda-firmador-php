@@ -41,6 +41,20 @@ $archivo = $firmador->firmarXml($pfx, $pin, $xml, $firmador::TO_XML_FILE, $ruta)
 print_r($archivo);
 ```
 
+### Docker
+
+Se ha creado una image de Docker para la ejecución del firmador, puede utilizarla de la siguiete manera:
+
+```bash
+docker run --rm -d  -p 8081:80 -e CERTIFICATE_UPLOAD=true mcmaxter/phpcrsigner:latest
+```
+
+O si desea puede no permitir el upload de certificados, y brindarlos al firmador por medio de un volumen:
+
+```bash
+docker run --rm -d -v /home/user/certificates:/tmp/certs -p 8081:80 mcmaxter/phpcrsigner:latest
+```
+
 ### VALIDAR:
 
 [Próximanente!...]
